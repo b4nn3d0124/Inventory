@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office Key Scanner</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script src="config.js"></script>
+<script src="app.js" defer></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Office Key Scanner</h2>
+
+<div id="login"></div>
+<p id="userInfo"></p>
+
+<div id="scanner"></div>
+
+<div class="scanResult">
+<p>Scanned Asset</p>
+<h3 id="assetID">None</h3>
+</div>
+
+<div class="actions">
+<button class="borrowBtn" onclick="confirmBorrow()">Borrow</button>
+<button class="returnBtn" onclick="returnAsset()">Return</button>
+</div>
+
+<p id="status"></p>
+
+</div>
+
+<div id="borrowPopup" class="popup">
+<div class="popupContent">
+<h3>Confirm Borrow</h3>
+<p>Asset: <span id="popupAsset"></span></p>
+<button onclick="closePopup()">Cancel</button>
+<button onclick="borrowAsset()">Confirm</button>
+</div>
+</div>
+
+</body>
+</html>

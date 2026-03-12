@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="admin.js" defer></script>
+</head>
+
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<div class="metrics">
+<div class="card">
+<h3>Total Assets</h3>
+<p id="totalAssets">0</p>
+</div>
+
+<div class="card">
+<h3>Borrowed</h3>
+<p id="borrowedAssets">0</p>
+</div>
+
+<div class="card">
+<h3>Available</h3>
+<p id="availableAssets">0</p>
+</div>
+</div>
+
+<h2>Search Inventory</h2>
+
+<input type="text" id="search" placeholder="Search assets" onkeyup="searchInventory()">
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Status</th>
+<th>Holder</th>
+</tr>
+</thead>
+
+<tbody id="assetBody"></tbody>
+
+</table>
+
+</body>
+</html>
