@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard - BorrowSmart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-layer">
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+</div>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+      </svg>
+    </div>
+    BorrowSmart
+  </a>
+  <button class="mobile-menu-btn" aria-label="Toggle menu">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+  </button>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin.html" class="nav-admin active">Admin</a>
+  </nav>
+</header>
+
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="admin.html" class="active">Admin</a>
+</div>
+
+<div class="container container-wide">
+  <div class="page-hero">
+    <h1>Admin Dashboard</h1>
+    <p>Manage assets, track usage, and monitor system activity</p>
+  </div>
+
+  <div class="stats-grid animate-in">
+    <div class="stat-card">
+      <div class="stat-value" id="totalAssets">156</div>
+      <div class="stat-label">Total Assets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="borrowedCount">42</div>
+      <div class="stat-label">Currently Borrowed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="activeUsers">28</div>
+      <div class="stat-label">Active Users</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="todayScans">127</div>
+      <div class="stat-label">Today's Scans</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Recent Activity</h2>
+    <p class="section-subtitle">Track the latest asset movements in real-time</p>
+    
+    <div class="table-container animate-in">
+      <table>
+        <thead>
+          <tr>
+            <th>Asset ID</th>
+            <th>Asset Name</th>
+            <th>User</th>
+            <th>Action</th>
+            <th>Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="activityTable">
+          <tr>
+            <td>AST-001</td>
+            <td>MacBook Pro 16"</td>
+            <td>John Smith</td>
+            <td>Borrow</td>
+            <td>2 min ago</td>
+            <td><span class="badge badge-success">Active</span></td>
+          </tr>
+          <tr>
+            <td>AST-045</td>
+            <td>Projector - Sony 4K</td>
+            <td>Sarah Chen</td>
+            <td>Return</td>
+            <td>15 min ago</td>
+            <td><span class="badge badge-info">Returned</span></td>
+          </tr>
+          <tr>
+            <td>AST-023</td>
+            <td>Conference Room Key</td>
+            <td>Mike Johnson</td>
+            <td>Borrow</td>
+            <td>32 min ago</td>
+            <td><span class="badge badge-success">Active</span></td>
+          </tr>
+          <tr>
+            <td>AST-089</td>
+            <td>iPad Pro 12.9"</td>
+            <td>Emily Davis</td>
+            <td>Borrow</td>
+            <td>1 hour ago</td>
+            <td><span class="badge badge-warning">Overdue</span></td>
+          </tr>
+          <tr>
+            <td>AST-012</td>
+            <td>Wireless Mouse Set</td>
+            <td>Alex Turner</td>
+            <td>Return</td>
+            <td>2 hours ago</td>
+            <td><span class="badge badge-info">Returned</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="grid-2">
+      <div class="card animate-in animate-in-1">
+        <div class="card-header">
+          <div class="card-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </div>
+          <h3>Add New Asset</h3>
+        </div>
+        <p>Register a new asset into the system for tracking and management.</p>
+        <button class="btn-primary" style="margin-top: 16px; width: 100%;" onclick="showAddAssetModal()">
+          Add Asset
+        </button>
+      </div>
+      
+      <div class="card animate-in animate-in-2">
+        <div class="card-header">
+          <div class="card-icon purple">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+            </svg>
+          </div>
+          <h3>Export Report</h3>
+        </div>
+        <p>Generate and download comprehensive reports on asset usage and activity.</p>
+        <button class="btn-secondary" style="margin-top: 16px; width: 100%;" onclick="exportReport()">
+          Export CSV
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="addAssetPopup" class="popup">
+  <div class="popupContent" style="max-width: 400px;">
+    <h3>Add New Asset</h3>
+    <form id="addAssetForm" onsubmit="addAsset(event)">
+      <div class="form-group">
+        <label for="assetName">Asset Name</label>
+        <input type="text" id="assetName" placeholder="e.g., MacBook Pro 16-inch" required>
+      </div>
+      <div class="form-group">
+        <label for="assetCategory">Category</label>
+        <select id="assetCategory" required>
+          <option value="">Select category</option>
+          <option value="electronics">Electronics</option>
+          <option value="keys">Keys</option>
+          <option value="equipment">Equipment</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="assetLocation">Location</label>
+        <input type="text" id="assetLocation" placeholder="e.g., Storage Room A">
+      </div>
+      <div class="popup-buttons">
+        <button type="button" onclick="closeAddAssetPopup()">Cancel</button>
+        <button type="submit">Add Asset</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="footer">
+  <p>BorrowSmart Admin Panel - Secure Asset Management System</p>
+</div>
+
+<script src="main.js"></script>
+<script>
+function showAddAssetModal() {
+  document.getElementById('addAssetPopup').classList.add('active');
+}
+
+function closeAddAssetPopup() {
+  document.getElementById('addAssetPopup').classList.remove('active');
+}
+
+function addAsset(e) {
+  e.preventDefault();
+  const name = document.getElementById('assetName').value;
+  const category = document.getElementById('assetCategory').value;
+  
+  // Simulate adding asset
+  const assetId = 'AST-' + String(Math.floor(Math.random() * 900) + 100);
+  
+  // Add to table
+  const tbody = document.getElementById('activityTable');
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${assetId}</td>
+    <td>${name}</td>
+    <td>Admin</td>
+    <td>Created</td>
+    <td>Just now</td>
+    <td><span class="badge badge-info">New</span></td>
+  `;
+  tbody.insertBefore(newRow, tbody.firstChild);
+  
+  // Update stats
+  document.getElementById('totalAssets').textContent = parseInt(document.getElementById('totalAssets').textContent) + 1;
+  
+  closeAddAssetPopup();
+  document.getElementById('addAssetForm').reset();
+}
+
+function exportReport() {
+  alert('Report exported successfully! Check your downloads folder.');
+}
+
+// Animate stats on load
+function animateValue(element, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    element.textContent = Math.floor(progress * (end - start) + start);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+// Run animations when visible
+document.addEventListener('DOMContentLoaded', () => {
+  const stats = document.querySelectorAll('.stat-value');
+  stats.forEach((stat, i) => {
+    const value = parseInt(stat.textContent);
+    stat.textContent = '0';
+    setTimeout(() => {
+      animateValue(stat, 0, value, 1000);
+    }, i * 100);
+  });
+});
+
+// Close popup when clicking outside
+document.getElementById('addAssetPopup').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeAddAssetPopup();
+  }
+});
+</script>
+</body>
+</html>
