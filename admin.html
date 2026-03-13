@@ -1,18 +1,26 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
+<script src="config.js"></script>
 <script src="admin.js" defer></script>
+
 </head>
 
 <body>
 
 <h1>Admin Dashboard</h1>
 
+<!-- METRICS -->
+
 <div class="metrics">
+
 <div class="card">
 <h3>Total Assets</h3>
 <p id="totalAssets">0</p>
@@ -27,20 +35,62 @@
 <h3>Available</h3>
 <p id="availableAssets">0</p>
 </div>
+
 </div>
+
+<!-- ADD ASSET -->
+
+<h2>Add New Asset</h2>
+
+<div class="addAsset">
+
+<input id="assetID" placeholder="Asset ID (ex: KEY-001)">
+<input id="assetName" placeholder="Asset Name">
+<input id="category" placeholder="Category">
+<input id="location" placeholder="Location">
+
+<button onclick="addAsset()">Add Asset</button>
+
+</div>
+
+<!-- QR PREVIEW -->
+
+<h3>QR Preview</h3>
+
+<img id="qrPreview" width="200">
+
+<!-- REPORT BUTTONS -->
+
+<h2>Reports</h2>
+
+<button onclick="printReport()">Print Report</button>
+
+<button onclick="downloadCSV()">Download CSV</button>
+
+<!-- SEARCH -->
 
 <h2>Search Inventory</h2>
 
-<input type="text" id="search" placeholder="Search assets" onkeyup="searchInventory()">
+<input type="text"
+id="search"
+placeholder="Search assets"
+onkeyup="searchInventory()">
+
+<!-- TABLE -->
 
 <table>
+
 <thead>
+
 <tr>
+
 <th>ID</th>
 <th>Name</th>
 <th>Status</th>
 <th>Holder</th>
+
 </tr>
+
 </thead>
 
 <tbody id="assetBody"></tbody>
@@ -48,4 +98,5 @@
 </table>
 
 </body>
+
 </html>
