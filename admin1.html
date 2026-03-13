@@ -7,6 +7,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="admin.js" defer></script>
+  
+  
 </head>
 <body>
 <div class="bg-layer">
@@ -202,81 +206,5 @@
 <div class="footer">
   <p>BorrowSmart Admin Panel - Secure Asset Management System</p>
 </div>
-
-<script src="main.js"></script>
-<script>
-function showAddAssetModal() {
-  document.getElementById('addAssetPopup').classList.add('active');
-}
-
-function closeAddAssetPopup() {
-  document.getElementById('addAssetPopup').classList.remove('active');
-}
-
-function addAsset(e) {
-  e.preventDefault();
-  const name = document.getElementById('assetName').value;
-  const category = document.getElementById('assetCategory').value;
-  
-  // Simulate adding asset
-  const assetId = 'AST-' + String(Math.floor(Math.random() * 900) + 100);
-  
-  // Add to table
-  const tbody = document.getElementById('activityTable');
-  const newRow = document.createElement('tr');
-  newRow.innerHTML = `
-    <td>${assetId}</td>
-    <td>${name}</td>
-    <td>Admin</td>
-    <td>Created</td>
-    <td>Just now</td>
-    <td><span class="badge badge-info">New</span></td>
-  `;
-  tbody.insertBefore(newRow, tbody.firstChild);
-  
-  // Update stats
-  document.getElementById('totalAssets').textContent = parseInt(document.getElementById('totalAssets').textContent) + 1;
-  
-  closeAddAssetPopup();
-  document.getElementById('addAssetForm').reset();
-}
-
-function exportReport() {
-  alert('Report exported successfully! Check your downloads folder.');
-}
-
-// Animate stats on load
-function animateValue(element, start, end, duration) {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    element.textContent = Math.floor(progress * (end - start) + start);
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
-  };
-  window.requestAnimationFrame(step);
-}
-
-// Run animations when visible
-document.addEventListener('DOMContentLoaded', () => {
-  const stats = document.querySelectorAll('.stat-value');
-  stats.forEach((stat, i) => {
-    const value = parseInt(stat.textContent);
-    stat.textContent = '0';
-    setTimeout(() => {
-      animateValue(stat, 0, value, 1000);
-    }, i * 100);
-  });
-});
-
-// Close popup when clicking outside
-document.getElementById('addAssetPopup').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeAddAssetPopup();
-  }
-});
-</script>
 </body>
 </html>
